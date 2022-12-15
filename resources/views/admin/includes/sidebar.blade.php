@@ -10,7 +10,7 @@
                 <a href="{{ route('admin.category.index') }}" class="nav-link">
                     <i class="nav-icon far fa-image"></i>
                     <p>
-                        Gallery
+                        Категории
                     </p>
                 </a>
             </li>
