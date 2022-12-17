@@ -10,6 +10,14 @@
                     <div class="col-sm-6 d-flex align-items-center">
                         <h1 class="m-0 mr-3">{{ $category->title }}</h1>
                         <a href="{{ route('admin.category.edit', $category->id) }}" class="text-success"><i class="fas fa-pen"></i></a>
+                        <form action="{{ route('admin.category.delete', $category->id) }}"
+                              method="Post">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="border-0 bg-transparent">
+                                <i class="fas fa-trash text-danger" role="button"></i>
+                            </button>
+                        </form>
                     </div><!-- /.col -->
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
