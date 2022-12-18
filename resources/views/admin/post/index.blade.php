@@ -39,7 +39,8 @@
                                     <thead>
                                     <tr>
                                         <th>ID</th>
-                                        <th>User</th>
+                                        <th>Название</th>
+                                        <th>Контент</th>
                                         <th colspan="3" class="text-center">Действия</th>
                                     </tr>
                                     </thead>
@@ -48,6 +49,7 @@
                                         <tr>
                                             <td>{{ $post->id }}</td>
                                             <td>{{ $post->title }}</td>
+                                            <td>{{ $post->content }}</td>
                                             <td class="text-center"><a href="{{ route('admin.post.show', $post->id) }}"><i
                                                         class="fas fa-eye"></i></a></td>
                                             <td class="text-center"><a href="{{ route('admin.post.edit', $post->id) }}"

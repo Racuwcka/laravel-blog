@@ -43,7 +43,7 @@
 
     @include('admin.includes.sidebar')
 
-        @yield('content')
+    @yield('content')
 
     <footer class="main-footer">
         <strong>Blog</strong>
@@ -74,6 +74,8 @@
 <script src="{{ asset('plugins/daterangepicker/daterangepicker.js') }}"></script>
 <!-- overlayScrollbars -->
 <script src="{{ asset('plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js') }}"></script>
+<!-- bs-custom-file-input -->
+<script src="{{ asset('plugins/bs-custom-file-input/bs-custom-file-input.min.js') }}"></script>
 <!-- AdminLTE App -->
 <script src="{{ asset('dist/js/adminlte.js') }}"></script>
 <script>
@@ -89,6 +91,9 @@
                 ['height', ['height']]
             ]
         });
+    });
+    $(function () {
+        bsCustomFileInput.init();
     });
 </script>
 </body>
