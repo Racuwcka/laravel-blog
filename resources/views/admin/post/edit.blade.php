@@ -101,7 +101,9 @@
                                     @endforeach
                                 </select>
                             </div>
-                            <input type="submit" class="btn btn-primary" value="Обновить">
+                            <div class="form-group">
+                                <input type="submit" class="btn btn-primary" value="Обновить">
+                            </div>
                         </form>
                     </div>
                 </div>
