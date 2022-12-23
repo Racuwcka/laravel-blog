@@ -41,6 +41,7 @@
                                         <th>ID</th>
                                         <th>Login</th>
                                         <th>Email</th>
+                                        <th>Role</th>
                                         <th colspan="3" class="text-center">Действия</th>
                                     </tr>
                                     </thead>
@@ -50,10 +51,14 @@
                                             <td>{{ $user->id }}</td>
                                             <td>{{ $user->name }}</td>
                                             <td>{{ $user->email }}</td>
+                                            @foreach($roles as $id => $role)
+                                                <td>{{ $user->role === $id ? $role : '' }}</td>
+                                            @endforeach
                                             <td class="text-center"><a href="{{ route('admin.user.show', $user->id) }}"><i
                                                         class="fas fa-eye"></i></a></td>
                                             <td class="text-center"><a href="{{ route('admin.user.edit', $user->id) }}"
-                                                   class="text-success"><i class="fas fa-pen"></i></a></td>
+                                                                       class="text-success"><i
+                                                        class="fas fa-pen"></i></a></td>
                                             <td class="text-center">
                                                 <form action="{{ route('admin.user.delete', $user->id) }}"
                                                       method="Post">
