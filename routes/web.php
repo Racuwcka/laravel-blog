@@ -20,7 +20,12 @@ Route::get('/main', IndexController::class);
 Route::group(['namespace' => 'App\Http\Controllers\Main'], function() {
     Route::get('/', 'IndexController')->name('main.index');
 });
-
+/* POSTS */
+Route::group(['namespace' => 'App\Http\Controllers\Post', 'prefix' => 'posts'], function() {
+    Route::get('/', 'IndexController')->name('post.index');
+    Route::get('/{post}', 'ShowController')->name('post.show');
+});
+/* PERSONAL */
 Route::group(['namespace' => 'App\Http\Controllers\Personal', 'prefix' => 'personal', 'middleware' => ['auth', 'verified']], function() {
     Route::group(['namespace' => 'Main'], function () {
         Route::get('/', 'IndexController')->name('personal.main.index');
@@ -36,7 +41,7 @@ Route::group(['namespace' => 'App\Http\Controllers\Personal', 'prefix' => 'perso
         Route::delete('/{comment}', 'DeleteController')->name('personal.comment.delete');
     });
 });
-
+/* ADMIN */
 Route::group(['namespace' => 'App\Http\Controllers\Admin', 'prefix' => 'admin', 'middleware' => ['auth', 'admin', 'verified']], function() {
     Route::group(['namespace' => 'Main'], function() {
         Route::get('/', 'IndexController')->name('admin.main.index');
