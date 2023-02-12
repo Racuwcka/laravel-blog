@@ -18,3 +18,7 @@ yarn-error.log
 /.vscode
 
 .vercel
+
+/storage/app/public/images
+/public/dist/img
+/public/assets/images

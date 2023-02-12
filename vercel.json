@@ -2,9 +2,7 @@
     "version": 2,
     "functions": {
         "api/index.php": {
-            "runtime": "vercel-php@0.5.2",
-            "memory": 1024,
-            "maxDuration": 10
+            "runtime": "vercel-php@0.5.2"
         }
     },
     "routes": [{
@@ -13,8 +11,10 @@
     }],
     "env": {
         "APP_ENV": "production",
-        "APP_DEBUG": "false",
-        "APP_URL": "laravel-blog-edica",
+        "APP_DEBUG": "true",
+        "APP_URL": "https://laravel-blog-project.vercel.app",
+
+        "DB_CONNECTION": "sqlite",
 
         "APP_CONFIG_CACHE": "/tmp/config.php",
         "APP_EVENTS_CACHE": "/tmp/events.php",

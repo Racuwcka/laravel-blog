@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\Main\IndexController;
+use CloudinaryLabs\CloudinaryLaravel\Facades\Cloudinary;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -16,6 +18,17 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/main', IndexController::class);
+
+Route::group(['prefix' => 'upload'], function() {
+    Route::get('/', function() { return view('upload'); });
+    Route::post('/', function(Request $request) {
+        $uploadedFileUrl = Cloudinary::upload($request->file('file')->getRealPath(),[
+            'folder' => 'Laravel-blog'
+        ])->getSecurePath();
+        dd($uploadedFileUrl);
+    });
+});
+
 
 Route::group(['namespace' => 'App\Http\Controllers\Main'], function() {
     Route::get('/', 'IndexController')->name('main.index');
