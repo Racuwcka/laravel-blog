@@ -37,9 +37,7 @@
                                 @enderror
                             </div>
                             <div class="form-group">
-                                <textarea id="summernote" name="content">
-                                    {{ old('title') }}
-                                </textarea>
+                                <textarea {{--id="summernote"--}} name="content" rows="4" cols="50">{{ old('title') }}</textarea>
                                 @error('title')
                                 <div class="text-danger">{{ $message }}</div>
                                 @enderror
@@ -48,11 +46,8 @@
                                 <label>Добавить превью</label>
                                 <div class="input-group">
                                     <div class="custom-file">
-                                        <input type="file" class="custom-file-input" name="preview_image">
+                                        <input type="file" class="custom-file-input" name="preview_image" role="button">
                                         <label class="custom-file-label">Выберите изображение</label>
-                                    </div>
-                                    <div class="input-group-append">
-                                        <span class="input-group-text">Загрузить</span>
                                     </div>
                                 </div>
                                 @error('preview_image')
@@ -63,11 +58,8 @@
                                 <label>Добавить главное изображение</label>
                                 <div class="input-group">
                                     <div class="custom-file">
-                                        <input type="file" class="custom-file-input" name="main_image">
+                                        <input type="file" class="custom-file-input" name="main_image" role="button">
                                         <label class="custom-file-label">Выберите изображение</label>
-                                    </div>
-                                    <div class="input-group-append">
-                                        <span class="input-group-text">Загрузить</span>
                                     </div>
                                 </div>
                                 @error('main_image')
@@ -76,7 +68,7 @@
                             </div>
                             <div class="form-group w-50">
                                 <label>Выберите категорию</label>
-                                <select name="category_id" class="form-control">
+                                <select name="category_id" class="form-control" role="button">
                                     @foreach($categories as $category)
                                         <option value="{{ $category->id }}"
                                         {{ $category->id == old('category_id') ? ' selected' : '' }}

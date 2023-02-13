@@ -9,7 +9,9 @@
                     @foreach($posts as $post)
                         <div class="col-md-4 fetured-post blog-post" data-aos="fade-up">
                             <div class="blog-post-thumbnail-wrapper">
-                                <img src="{{ Storage::url($post->preview_image) }}" alt="blog post">
+                                <a href="{{ route('post.show', $post->id) }}" role="button">
+                                    <img src="{{ $post->preview_image }}" alt="blog post">
+                                </a>
                             </div>
                             <div class="d-flex justify-content-between">
                                 <p class="blog-post-category">{{ $post->category->title }}</p>
@@ -49,7 +51,7 @@
                             @foreach($randomPosts as $randomPost)
                                 <div class="col-md-6 blog-post" data-aos="fade-up">
                                     <div class="blog-post-thumbnail-wrapper">
-                                        <img src="{{ Storage::url($randomPost->preview_image) }}" alt="blog post">
+                                        <img src="{{ $randomPost->preview_image }}" alt="blog post">
                                     </div>
                                     <p class="blog-post-category">{{ $randomPost->category->title }}</p>
                                     <a href="#" class="blog-post-permalink">
@@ -67,7 +69,7 @@
                             @foreach($likedPosts as $post)
                                 <li class="post">
                                     <a href="#!" class="post-permalink media">
-                                        <img src="{{ Storage::url($post->preview_image) }}" alt="blog post">
+                                        <img src="{{ $post->preview_image }}" alt="blog post">
                                         <div class="media-body">
                                             <h6 class="post-title">{{ $post->title }}</h6>
                                         </div>

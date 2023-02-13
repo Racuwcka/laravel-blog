@@ -8,7 +8,7 @@
                data-aos-delay="200">{{ $date->translatedFormat('F') }} {{ $date->day }}, {{ $date->year }}
                 • {{ $date->format('H:i') }} • {{ $post->comments->count() }} Комментария</p>
             <section class="blog-post-featured-img" data-aos="fade-up" data-aos-delay="300">
-                <img src="{{ Storage::url($post->preview_image) }}" alt="featured image" class="w-100">
+                <img src="{{ $post->preview_image }}" alt="featured image" class="w-100">
             </section>
             <section class="post-content">
                 <div class="row">
@@ -23,11 +23,14 @@
                         <form action="{{ route('post.like.store', $post->id) }}" method="Post">
                             @csrf
                             <span>{{ $post->liked_users_count }}</span>
-                            <button type="submit" class="border-0 bg-transparent">
-                                @auth
+                            @guest
+                                <i class="far fa-heart"></i>
+                            @endguest
+                            @auth
+                                <button type="submit" class="border-0 bg-transparent">
                                     <i class="fa{{ auth()->user()->likedPosts->contains($post->id) ? 's' : 'r'}} fa-heart"></i>
-                                @endauth
-                            </button>
+                                </button>
+                            @endauth
                         </form>
                     </section>
                     @if($relatedPosts->count() > 0)
@@ -37,11 +40,13 @@
                             @foreach($relatedPosts as $relatedPost)
                                 <div class="col-md-4"
                                      data-aos="fade-down" data-aos-delay="100">
-                                    <img src="{{ Storage::url($relatedPost->preview_image) }}" alt="related post"
-                                         class="post-thumbnail">
+                                    <a href="{{ route('post.show', $relatedPost->id) }}" role="button">
+                                        <img src="{{ $relatedPost->preview_image }}" alt="related post"
+                                             class="post-thumbnail">
+                                    </a>
                                     <p class="post-category">{{ $relatedPost->category->title }}</p>
                                     <a href="{{ route('post.show', $relatedPost->id) }}"><h5
-                                            class="post-title">{{ $post->title }}</h5></a>
+                                            class="post-title">{{ $relatedPost->title }}</h5></a>
                                 </div>
                             @endforeach
                         </div>

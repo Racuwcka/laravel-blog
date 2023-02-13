@@ -48,7 +48,7 @@
                             <div class="form-group w-50">
                                 <label>Добавить превью</label>
                                 <div class="w-25 mb-2">
-                                    <img src="{{ Storage::url($post->preview_image) }}" alt="preview_image" class="w-50">
+                                    <img src="{{ $post->preview_image }}" alt="preview_image" class="w-50">
                                 </div>
                                 <div class="input-group">
                                     <div class="custom-file">
@@ -66,7 +66,7 @@
                             <div class="form-group w-50">
                                 <label>Добавить главное изображение</label>
                                 <div class="w-50 mb-2">
-                                    <img src="{{ Storage::url($post->main_image) }}" alt="main_image" class="w-50">
+                                    <img src="{{ $post->main_image }}" alt="main_image" class="w-50">
                                 </div>
                                 <div class="input-group">
                                     <div class="custom-file">
